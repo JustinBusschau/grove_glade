@@ -29,7 +29,6 @@ const config: GatsbyConfig = {
         "icon": "src/images/favicon.svg"
       }
     },
-    "gatsby-plugin-mdx",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
     {
