@@ -118,7 +118,7 @@ export const StyledList = styled.ul`
   list-style: none;
   padding-left: 0;
   margin: ${({ theme }) => theme.spacing.md} 0;
-`
+`;
 
 export const StyledListItem = styled.li`
   margin-bottom: ${({ theme }) => theme.spacing.sm};
@@ -130,7 +130,7 @@ export const StyledListItem = styled.li`
   position: relative;
 
   &::before {
-    content: "🌿";
+    content: '🌿';
     position: absolute;
     left: 0;
   }
@@ -138,4 +138,4 @@ export const StyledListItem = styled.li`
   &:last-child {
     margin-bottom: 0;
   }
-`
+`;

@@ -1,14 +1,18 @@
-import React from 'react'
-import styled from 'styled-components'
-import { Link } from 'gatsby'
-import gladeLogo from '../images/glade_logo.svg'
+import React from 'react';
+import styled from 'styled-components';
+import { Link } from 'gatsby';
+import gladeLogo from '../images/glade_logo.svg';
 
 const FooterContainer = styled.footer`
-  background: linear-gradient(to bottom, ${({ theme }) => theme.colors.background} 0%, ${({ theme }) => theme.colors.primary} 100%);
+  background: linear-gradient(
+    to bottom,
+    ${({ theme }) => theme.colors.background} 0%,
+    ${({ theme }) => theme.colors.primary} 100%
+  );
   color: ${({ theme }) => theme.colors.darkest};
   padding: ${({ theme }) => theme.spacing.xl} 0;
   margin-top: auto;
-`
+`;
 
 const FooterContent = styled.div`
   max-width: 1200px;
@@ -21,7 +25,7 @@ const FooterContent = styled.div`
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     padding: 0 ${({ theme }) => theme.spacing.md};
   }
-`
+`;
 
 const TopSection = styled.div`
   display: flex;
@@ -33,12 +37,12 @@ const TopSection = styled.div`
     flex-direction: column;
     gap: ${({ theme }) => theme.spacing.lg};
   }
-`
+`;
 
 const BrandSection = styled.div`
   flex: 1;
   max-width: 400px;
-`
+`;
 
 const Logo = styled.div`
   width: 40px;
@@ -47,7 +51,7 @@ const Logo = styled.div`
   background-size: contain;
   background-repeat: no-repeat;
   margin-bottom: ${({ theme }) => theme.spacing.md};
-`
+`;
 
 const Description = styled.p`
   font-family: ${({ theme }) => theme.fonts.body};
@@ -55,7 +59,7 @@ const Description = styled.p`
   line-height: 1.6;
   color: ${({ theme }) => theme.colors.darkest};
   margin-bottom: ${({ theme }) => theme.spacing.md};
-`
+`;
 
 const LinksSection = styled.div`
   display: flex;
@@ -65,20 +69,20 @@ const LinksSection = styled.div`
     flex-direction: column;
     gap: ${({ theme }) => theme.spacing.lg};
   }
-`
+`;
 
 const LinksList = styled.div`
   display: flex;
   flex-direction: column;
   gap: ${({ theme }) => theme.spacing.sm};
-`
+`;
 
 const LinksTitle = styled.h3`
   font-family: ${({ theme }) => theme.fonts.heading};
   font-size: 1.2rem;
   color: ${({ theme }) => theme.colors.darkest};
   margin-bottom: ${({ theme }) => theme.spacing.sm};
-`
+`;
 
 const FooterLink = styled(Link)`
   color: ${({ theme }) => theme.colors.darkest};
@@ -91,7 +95,7 @@ const FooterLink = styled(Link)`
   &:hover {
     opacity: 1;
   }
-`
+`;
 
 const BottomSection = styled.div`
   display: flex;
@@ -106,14 +110,14 @@ const BottomSection = styled.div`
     gap: ${({ theme }) => theme.spacing.md};
     text-align: center;
   }
-`
+`;
 
 const Copyright = styled.p`
   font-family: ${({ theme }) => theme.fonts.body};
   font-size: 0.9rem;
   color: ${({ theme }) => theme.colors.white};
   opacity: 0.8;
-`
+`;
 
 const Footer: React.FC = () => {
   return (
@@ -123,7 +127,8 @@ const Footer: React.FC = () => {
           <BrandSection>
             <Logo />
             <Description>
-              The Grove is a mindful CRM platform designed for neurodiverse users and community organizations.
+              The Grove is a mindful CRM platform designed for neurodiverse
+              users and community organizations.
             </Description>
           </BrandSection>
 
@@ -145,7 +150,7 @@ const Footer: React.FC = () => {
         </BottomSection>
       </FooterContent>
     </FooterContainer>
-  )
-}
+  );
+};
 
-export default Footer 
+export default Footer;

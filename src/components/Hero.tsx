@@ -1,17 +1,21 @@
-import React from 'react'
-import styled from 'styled-components'
-import { Link } from 'gatsby'
-import gladeLogo from '../images/glade_logo.svg'
+import React from 'react';
+import styled from 'styled-components';
+import { Link } from 'gatsby';
+import gladeLogo from '../images/glade_logo.svg';
 
 const HeroSection = styled.section`
   min-height: 100vh;
-  background: linear-gradient(135deg, ${({ theme }) => theme.colors.primary} 0%, ${({ theme }) => theme.colors.secondary} 100%);
+  background: linear-gradient(
+    135deg,
+    ${({ theme }) => theme.colors.primary} 0%,
+    ${({ theme }) => theme.colors.secondary} 100%
+  );
   display: flex;
   align-items: center;
   padding: ${({ theme }) => theme.spacing.xl};
   position: relative;
   overflow: hidden;
-`
+`;
 
 const HeroContent = styled.div`
   max-width: 1200px;
@@ -19,26 +23,26 @@ const HeroContent = styled.div`
   color: ${({ theme }) => theme.colors.white};
   position: relative;
   z-index: 1;
-`
+`;
 
 const Title = styled.h1`
   font-family: ${({ theme }) => theme.fonts.heading};
   font-size: 4rem;
   margin-bottom: ${({ theme }) => theme.spacing.lg};
   line-height: 1.2;
-`
+`;
 
 const Subtitle = styled.p`
   font-family: ${({ theme }) => theme.fonts.body};
   font-size: 1.5rem;
   margin-bottom: ${({ theme }) => theme.spacing.xl};
   max-width: 600px;
-`
+`;
 
 const ButtonGroup = styled.div`
   display: flex;
   gap: ${({ theme }) => theme.spacing.md};
-`
+`;
 
 const Button = styled(Link)`
   padding: ${({ theme }) => theme.spacing.md} ${({ theme }) => theme.spacing.lg};
@@ -66,7 +70,7 @@ const Button = styled(Link)`
       background-color: rgba(255, 255, 255, 0.1);
     }
   }
-`
+`;
 
 const LeafDecoration = styled.div`
   position: absolute;
@@ -77,7 +81,7 @@ const LeafDecoration = styled.div`
   right: -50px;
   top: 100px;
   pointer-events: none;
-`
+`;
 
 const Hero: React.FC = () => {
   return (
@@ -86,8 +90,9 @@ const Hero: React.FC = () => {
       <HeroContent>
         <Title>Welcome to The Grove</Title>
         <Subtitle>
-          A mindful CRM platform that helps you nurture your relationships, whether personal or professional.
-          Designed with care for neurodiverse users and small organizations.
+          A mindful CRM platform that helps you nurture your relationships,
+          whether personal or professional. Designed with care for neurodiverse
+          users and small organizations.
         </Subtitle>
         <ButtonGroup>
           <Button to="/personal" className="primary">
@@ -99,7 +104,7 @@ const Hero: React.FC = () => {
         </ButtonGroup>
       </HeroContent>
     </HeroSection>
-  )
-}
+  );
+};
 
-export default Hero 
+export default Hero;

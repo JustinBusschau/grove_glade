@@ -1,4 +1,4 @@
-import type { GatsbyConfig } from "gatsby";
+import type { GatsbyConfig } from 'gatsby';
 
 require('dotenv').config();
 
@@ -14,23 +14,23 @@ const config: GatsbyConfig = {
   // Learn more at: https://gatsby.dev/graphql-typegen
   graphqlTypegen: true,
   plugins: [
-    "gatsby-plugin-styled-components",
-    "gatsby-plugin-image",
-    "gatsby-plugin-sitemap",
+    'gatsby-plugin-styled-components',
+    'gatsby-plugin-image',
+    'gatsby-plugin-sitemap',
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        "name": "The Grove",
-        "short_name": "The Grove",
-        "start_url": "/",
-        "background_color": "#000000",
-        "theme_color": "#000000",
-        "display": "minimal-ui",
-        "icon": "src/images/favicon.svg"
-      }
+        name: 'The Grove',
+        short_name: 'The Grove',
+        start_url: '/',
+        background_color: '#000000',
+        theme_color: '#000000',
+        display: 'minimal-ui',
+        icon: 'src/images/favicon.svg',
+      },
     },
-    "gatsby-plugin-sharp",
-    "gatsby-transformer-sharp",
+    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
     {
       resolve: 'gatsby-source-contentful',
       options: {
@@ -41,20 +41,20 @@ const config: GatsbyConfig = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        "name": "images",
-        "path": "./src/images/"
+        name: 'images',
+        path: './src/images/',
       },
-      __key: "images"
+      __key: 'images',
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        "name": "pages",
-        "path": "./src/pages/"
+        name: 'pages',
+        path: './src/pages/',
       },
-      __key: "pages"
-    }
-  ]
+      __key: 'pages',
+    },
+  ],
 };
 
 export default config;

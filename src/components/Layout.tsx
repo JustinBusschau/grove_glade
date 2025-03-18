@@ -1,9 +1,9 @@
-import React from 'react'
-import { ThemeProvider } from 'styled-components'
-import { theme } from './theme'
-import { createGlobalStyle } from 'styled-components'
-import Header from './Header'
-import Footer from './Footer'
+import React from 'react';
+import { ThemeProvider } from 'styled-components';
+import { theme } from './theme';
+import { createGlobalStyle } from 'styled-components';
+import Header from './Header';
+import Footer from './Footer';
 
 const GlobalStyle = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap');
@@ -24,10 +24,10 @@ const GlobalStyle = createGlobalStyle`
   h1, h2, h3, h4, h5, h6 {
     font-family: ${({ theme }) => theme.fonts.heading};
   }
-`
+`;
 
 interface LayoutProps {
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
@@ -38,7 +38,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       <main>{children}</main>
       <Footer />
     </ThemeProvider>
-  )
-}
+  );
+};
 
-export default Layout 
+export default Layout;

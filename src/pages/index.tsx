@@ -1,7 +1,7 @@
-import React from 'react'
-import Layout from '../components/Layout'
-import Hero from '../components/Hero'
-import Features from '../components/Features'
+import React from 'react';
+import Layout from '../components/Layout';
+import Hero from '../components/Hero';
+import Features from '../components/Features';
 
 const IndexPage: React.FC = () => {
   return (
@@ -9,7 +9,7 @@ const IndexPage: React.FC = () => {
       <Hero />
       <Features />
     </Layout>
-  )
-}
+  );
+};
 
-export default IndexPage
+export default IndexPage;

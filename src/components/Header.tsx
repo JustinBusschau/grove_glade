@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
-import styled from 'styled-components'
-import { Link } from 'gatsby'
-import gladeLogo from '../images/glade_logo.svg'
+import React, { useState } from 'react';
+import styled from 'styled-components';
+import { Link } from 'gatsby';
+import gladeLogo from '../images/glade_logo.svg';
 
 const HeaderContainer = styled.header`
   background-color: ${({ theme }) => theme.colors.white};
@@ -18,7 +18,7 @@ const HeaderContainer = styled.header`
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     padding: ${({ theme }) => theme.spacing.md};
   }
-`
+`;
 
 const Nav = styled.nav`
   max-width: 1200px;
@@ -26,20 +26,20 @@ const Nav = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-`
+`;
 
 const LogoContainer = styled(Link)`
   display: flex;
   align-items: center;
   gap: ${({ theme }) => theme.spacing.sm};
   text-decoration: none;
-`
+`;
 
 const LogoImage = styled.img`
   width: 32px;
   height: 32px;
   opacity: 0.8;
-`
+`;
 
 const LogoText = styled.span`
   font-family: ${({ theme }) => theme.fonts.heading};
@@ -50,7 +50,7 @@ const LogoText = styled.span`
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     font-size: 1.2rem;
   }
-`
+`;
 
 const NavLinks = styled.div<{ isOpen: boolean }>`
   display: flex;
@@ -68,7 +68,7 @@ const NavLinks = styled.div<{ isOpen: boolean }>`
     box-shadow: ${({ theme }) => theme.shadows.sm};
     gap: ${({ theme }) => theme.spacing.md};
   }
-`
+`;
 
 const NavLink = styled(Link)`
   color: ${({ theme }) => theme.colors.text};
@@ -84,7 +84,7 @@ const NavLink = styled(Link)`
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     padding: ${({ theme }) => theme.spacing.sm} 0;
   }
-`
+`;
 
 const HamburgerButton = styled.button<{ isOpen: boolean }>`
   display: none;
@@ -120,14 +120,14 @@ const HamburgerButton = styled.button<{ isOpen: boolean }>`
       transform: rotate(-45deg) translate(7px, -6px);
     }
   `}
-`
+`;
 
 const Header: React.FC = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen)
-  }
+    setIsMenuOpen(!isMenuOpen);
+  };
 
   return (
     <HeaderContainer>
@@ -136,20 +136,32 @@ const Header: React.FC = () => {
           <LogoImage src={gladeLogo} alt="The Grove Logo" />
           <LogoText>The Grove</LogoText>
         </LogoContainer>
-        <HamburgerButton isOpen={isMenuOpen} onClick={toggleMenu} aria-label="Toggle menu">
+        <HamburgerButton
+          isOpen={isMenuOpen}
+          onClick={toggleMenu}
+          aria-label="Toggle menu"
+        >
           <span></span>
           <span></span>
           <span></span>
         </HamburgerButton>
         <NavLinks isOpen={isMenuOpen}>
-          <NavLink to="/personal" onClick={() => setIsMenuOpen(false)}>Personal CRM</NavLink>
-          <NavLink to="/community" onClick={() => setIsMenuOpen(false)}>Community CRM</NavLink>
-          <NavLink to="/about" onClick={() => setIsMenuOpen(false)}>About</NavLink>
-          <NavLink to="/contact" onClick={() => setIsMenuOpen(false)}>Contact</NavLink>
+          <NavLink to="/personal" onClick={() => setIsMenuOpen(false)}>
+            Personal CRM
+          </NavLink>
+          <NavLink to="/community" onClick={() => setIsMenuOpen(false)}>
+            Community CRM
+          </NavLink>
+          <NavLink to="/about" onClick={() => setIsMenuOpen(false)}>
+            About
+          </NavLink>
+          <NavLink to="/contact" onClick={() => setIsMenuOpen(false)}>
+            Contact
+          </NavLink>
         </NavLinks>
       </Nav>
     </HeaderContainer>
-  )
-}
+  );
+};
 
-export default Header 
+export default Header;

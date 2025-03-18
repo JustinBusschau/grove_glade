@@ -1,18 +1,22 @@
-import React from 'react'
-import styled from 'styled-components'
-import Layout from '../components/Layout'
-import gladeLogo from '../images/glade_logo.svg'
-
+import React, { useState } from 'react';
+import styled from 'styled-components';
+import Layout from '../components/Layout';
+import gladeLogo from '../images/glade_logo.svg';
+import validator from 'validator';
 const HeroSection = styled.section`
   min-height: 40vh;
-  background: linear-gradient(135deg, ${({ theme }) => theme.colors.primary} 0%, ${({ theme }) => theme.colors.secondary} 100%);
+  background: linear-gradient(
+    135deg,
+    ${({ theme }) => theme.colors.primary} 0%,
+    ${({ theme }) => theme.colors.secondary} 100%
+  );
   display: flex;
   align-items: center;
   padding: ${({ theme }) => theme.spacing.xl};
   position: relative;
   overflow: hidden;
   margin-top: 70px;
-`
+`;
 
 const HeroContent = styled.div`
   max-width: 1200px;
@@ -20,7 +24,7 @@ const HeroContent = styled.div`
   color: ${({ theme }) => theme.colors.white};
   position: relative;
   z-index: 1;
-`
+`;
 
 const Title = styled.h1`
   font-family: ${({ theme }) => theme.fonts.heading};
@@ -31,7 +35,7 @@ const Title = styled.h1`
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     font-size: 3rem;
   }
-`
+`;
 
 const Subtitle = styled.p`
   font-family: ${({ theme }) => theme.fonts.body};
@@ -42,7 +46,7 @@ const Subtitle = styled.p`
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     font-size: 1.2rem;
   }
-`
+`;
 
 const LeafDecoration = styled.div`
   position: absolute;
@@ -60,12 +64,12 @@ const LeafDecoration = styled.div`
     right: -30px;
     top: 50px;
   }
-`
+`;
 
 const FormSection = styled.section`
   padding: ${({ theme }) => theme.spacing.xl} 0;
   background-color: ${({ theme }) => theme.colors.background};
-`
+`;
 
 const FormContainer = styled.div`
   max-width: 600px;
@@ -75,26 +79,26 @@ const FormContainer = styled.div`
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     padding: 0 ${({ theme }) => theme.spacing.md};
   }
-`
+`;
 
 const Form = styled.form`
   display: flex;
   flex-direction: column;
   gap: ${({ theme }) => theme.spacing.md};
-`
+`;
 
 const FormGroup = styled.div`
   display: flex;
   flex-direction: column;
   gap: ${({ theme }) => theme.spacing.xs};
-`
+`;
 
 const Label = styled.label`
   font-family: ${({ theme }) => theme.fonts.body};
   font-size: 1rem;
   color: ${({ theme }) => theme.colors.text};
   font-weight: 500;
-`
+`;
 
 const Input = styled.input`
   padding: ${({ theme }) => theme.spacing.sm};
@@ -110,7 +114,7 @@ const Input = styled.input`
     outline: none;
     border-color: ${({ theme }) => theme.colors.primary};
   }
-`
+`;
 
 const TextArea = styled.textarea`
   padding: ${({ theme }) => theme.spacing.sm};
@@ -128,7 +132,7 @@ const TextArea = styled.textarea`
     outline: none;
     border-color: ${({ theme }) => theme.colors.primary};
   }
-`
+`;
 
 const SubmitButton = styled.button`
   padding: ${({ theme }) => theme.spacing.md} ${({ theme }) => theme.spacing.xl};
@@ -145,9 +149,48 @@ const SubmitButton = styled.button`
   &:hover {
     background-color: ${({ theme }) => theme.colors.secondary};
   }
-`
+`;
 
-const ContactPage: React.FC = () => {
+const ErrorMessage = styled.span`
+  font-family: ${({ theme }) => theme.fonts.body};
+  font-size: 1rem;
+  font-weight: 700;
+  color: #e03616;
+  margin-top: ${({ theme }) => theme.spacing.xs};
+`;
+
+export default function ContactPage() {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [emailError, setEmailError] = useState('');
+  const [message, setMessage] = useState('');
+  const [isValid, setIsValid] = useState(false);
+
+  const validateEmail = e => {
+    var email = e.target.value;
+    if (validator.isEmail(email)) {
+      setEmailError('');
+      setIsValid(true);
+    } else {
+      setEmailError('Invalid email address');
+      setIsValid(false);
+    }
+    setEmail(email);
+  };
+
+  const resetForm = () => {
+    setName('');
+    setEmail('');
+    setEmailError('');
+    setMessage('');
+    setIsValid(false);
+  };
+
+  const handleSubmit = () => {
+    console.log(`name: ${name}, email: ${email}, message: ${message}`);
+    setTimeout(() => resetForm(), 1000);
+  };
+
   return (
     <Layout>
       <HeroSection>
@@ -162,7 +205,21 @@ const ContactPage: React.FC = () => {
 
       <FormSection>
         <FormContainer>
-          <Form>
+          <iframe
+            title="dummyframe"
+            name="dummyframe"
+            id="dummyframe"
+            style={{ display: 'none' }}
+          ></iframe>
+          <Form
+            name="contact"
+            data-netlify="true"
+            netlify
+            netlify-honeypot="honorific"
+            method="POST"
+            target="dummyframe"
+            onSubmit={handleSubmit}
+          >
             <FormGroup>
               <Label htmlFor="name">Name</Label>
               <Input
@@ -170,8 +227,22 @@ const ContactPage: React.FC = () => {
                 id="name"
                 name="name"
                 placeholder="Thomas Greene"
+                value={name}
+                onChange={e => setName(e.target.value)}
               />
             </FormGroup>
+
+            <div style={{ display: 'none' }}>
+              <FormGroup>
+                <Label htmlFor="honorific">Honorific</Label>
+                <Input
+                  type="text"
+                  id="honorific"
+                  name="honorific"
+                  placeholder="Mr"
+                />
+              </FormGroup>
+            </div>
 
             <FormGroup>
               <Label htmlFor="email">Email</Label>
@@ -180,7 +251,10 @@ const ContactPage: React.FC = () => {
                 id="email"
                 name="email"
                 placeholder="thom@greene.com"
+                value={email}
+                onChange={e => validateEmail(e)}
               />
+              <ErrorMessage>{emailError}</ErrorMessage>
             </FormGroup>
 
             <FormGroup>
@@ -189,17 +263,21 @@ const ContactPage: React.FC = () => {
                 id="message"
                 name="message"
                 placeholder="Please tell me more about The Glade..."
+                value={message}
+                onChange={e => setMessage(e.target.value)}
               />
             </FormGroup>
 
-            <SubmitButton type="submit">
-              Send Message
-            </SubmitButton>
+            {name && email && message && isValid === true ? (
+              <SubmitButton type="submit">Send Message</SubmitButton>
+            ) : (
+              <SubmitButton type="submit" disabled>
+                Send Message
+              </SubmitButton>
+            )}
           </Form>
         </FormContainer>
       </FormSection>
     </Layout>
-  )
+  );
 }
-
-export default ContactPage 

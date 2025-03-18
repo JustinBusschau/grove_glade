@@ -1,18 +1,22 @@
-import React from 'react'
-import styled from 'styled-components'
-import Layout from '../components/Layout'
-import gladeLogo from '../images/glade_logo.svg'
+import React from 'react';
+import styled from 'styled-components';
+import Layout from '../components/Layout';
+import gladeLogo from '../images/glade_logo.svg';
 
 const HeroSection = styled.section`
   min-height: 80vh;
-  background: linear-gradient(135deg, ${({ theme }) => theme.colors.primary} 0%, ${({ theme }) => theme.colors.secondary} 100%);
+  background: linear-gradient(
+    135deg,
+    ${({ theme }) => theme.colors.primary} 0%,
+    ${({ theme }) => theme.colors.secondary} 100%
+  );
   display: flex;
   align-items: center;
   padding: ${({ theme }) => theme.spacing.xl};
   position: relative;
   overflow: hidden;
   margin-top: 70px;
-`
+`;
 
 const HeroContent = styled.div`
   max-width: 1200px;
@@ -20,7 +24,7 @@ const HeroContent = styled.div`
   color: ${({ theme }) => theme.colors.white};
   position: relative;
   z-index: 1;
-`
+`;
 
 const Title = styled.h1`
   font-family: ${({ theme }) => theme.fonts.heading};
@@ -31,7 +35,7 @@ const Title = styled.h1`
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     font-size: 3rem;
   }
-`
+`;
 
 const Subtitle = styled.p`
   font-family: ${({ theme }) => theme.fonts.body};
@@ -42,7 +46,7 @@ const Subtitle = styled.p`
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     font-size: 1.2rem;
   }
-`
+`;
 
 const LeafDecoration = styled.div`
   position: absolute;
@@ -60,12 +64,12 @@ const LeafDecoration = styled.div`
     right: -30px;
     top: 50px;
   }
-`
+`;
 
 const FeaturesSection = styled.section`
   padding: ${({ theme }) => theme.spacing.xl} 0;
   background-color: ${({ theme }) => theme.colors.background};
-`
+`;
 
 const Container = styled.div`
   max-width: 1200px;
@@ -75,7 +79,7 @@ const Container = styled.div`
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     padding: 0 ${({ theme }) => theme.spacing.md};
   }
-`
+`;
 
 const SectionTitle = styled.h2`
   font-family: ${({ theme }) => theme.fonts.heading};
@@ -83,13 +87,13 @@ const SectionTitle = styled.h2`
   color: ${({ theme }) => theme.colors.primary};
   text-align: center;
   margin-bottom: ${({ theme }) => theme.spacing.xl};
-`
+`;
 
 const FeaturesGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: ${({ theme }) => theme.spacing.xl};
-`
+`;
 
 const FeatureCard = styled.div`
   background: ${({ theme }) => theme.colors.white};
@@ -101,26 +105,26 @@ const FeatureCard = styled.div`
   &:hover {
     transform: translateY(-5px);
   }
-`
+`;
 
 const FeatureTitle = styled.h3`
   font-family: ${({ theme }) => theme.fonts.heading};
   font-size: 1.5rem;
   color: ${({ theme }) => theme.colors.primary};
   margin-bottom: ${({ theme }) => theme.spacing.md};
-`
+`;
 
 const FeatureDescription = styled.p`
   font-family: ${({ theme }) => theme.fonts.body};
   color: ${({ theme }) => theme.colors.text};
   line-height: 1.6;
-`
+`;
 
 const FeatureList = styled.ul`
   list-style: none;
   padding: 0;
   margin: ${({ theme }) => theme.spacing.md} 0;
-`
+`;
 
 const FeatureItem = styled.li`
   font-family: ${({ theme }) => theme.fonts.body};
@@ -131,19 +135,19 @@ const FeatureItem = styled.li`
   gap: ${({ theme }) => theme.spacing.sm};
 
   &:before {
-    content: "🌿";
+    content: '🌿';
   }
-`
+`;
 
 const PersonalPage: React.FC = () => {
   const personalFeatures = [
-    "Emotionally aware prompts for social activity",
-    "Low-energy contact suggestions",
-    "Reduced cognitive load for social interactions",
-    "Customizable interaction preferences",
-    "Gentle reminders and notifications",
-    "Visual relationship mapping"
-  ]
+    'Emotionally aware prompts for social activity',
+    'Low-energy contact suggestions',
+    'Reduced cognitive load for social interactions',
+    'Customizable interaction preferences',
+    'Gentle reminders and notifications',
+    'Visual relationship mapping',
+  ];
 
   return (
     <Layout>
@@ -152,8 +156,9 @@ const PersonalPage: React.FC = () => {
         <HeroContent>
           <Title>Personal CRM</Title>
           <Subtitle>
-            A mindful relationship management tool designed specifically for neurodiverse users.
-            Help you maintain meaningful connections with less stress and more joy.
+            A mindful relationship management tool designed specifically for
+            neurodiverse users. Help you maintain meaningful connections with
+            less stress and more joy.
           </Subtitle>
         </HeroContent>
       </HeroSection>
@@ -165,7 +170,8 @@ const PersonalPage: React.FC = () => {
             <FeatureCard>
               <FeatureTitle>Designed for Neurodiverse Users</FeatureTitle>
               <FeatureDescription>
-                Created with understanding and care for neurodiverse users, helping you maintain meaningful relationships with less stress.
+                Created with understanding and care for neurodiverse users,
+                helping you maintain meaningful relationships with less stress.
               </FeatureDescription>
               <FeatureList>
                 {personalFeatures.map((feature, index) => (
@@ -177,7 +183,7 @@ const PersonalPage: React.FC = () => {
         </Container>
       </FeaturesSection>
     </Layout>
-  )
-}
+  );
+};
 
-export default PersonalPage 
+export default PersonalPage;
