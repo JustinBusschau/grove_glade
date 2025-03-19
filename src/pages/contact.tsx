@@ -213,6 +213,7 @@ export default function ContactPage() {
           ></iframe>
           <Form
             name="contact"
+            id="contact"
             data-netlify="true"
             netlify
             netlify-honeypot="honorific"
@@ -226,7 +227,7 @@ export default function ContactPage() {
                 type="text"
                 id="name"
                 name="name"
-                placeholder="Thomas Greene"
+                placeholder="Ivy Fern"
                 value={name}
                 onChange={e => setName(e.target.value)}
               />
@@ -239,7 +240,7 @@ export default function ContactPage() {
                   type="text"
                   id="honorific"
                   name="honorific"
-                  placeholder="Mr"
+                  placeholder="Ms"
                 />
               </FormGroup>
             </div>
@@ -250,7 +251,7 @@ export default function ContactPage() {
                 type="email"
                 id="email"
                 name="email"
-                placeholder="thom@greene.com"
+                placeholder="ivy.fern@greene.com"
                 value={email}
                 onChange={e => validateEmail(e)}
               />
