@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 2000">
+  <!-- Bezel -->
+  <rect x="0" y="0" width="2000" height="2000" rx="950" ry="950" fill="#430F1E"/>
+
+  <!-- Background -->
+  <rect x="150" y="100" width="1700" height="1800" rx="650" ry="700" fill="#E5F8DE"/>
+
   <!-- Main G shape -->
   <path d="M 1205 950 C 950 943 922 1133 1061 1171 C 1120 1186 1196 1192 1394 1163 C 1405 1352 1401
            1366 1353 1466 C 1253 1634 926 1633 837 1574 C 624 1414 572 1277 564 987 C 569 693 788

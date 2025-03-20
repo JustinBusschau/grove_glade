@@ -53,7 +53,7 @@ const LeafDecoration = styled.div`
   width: 300px;
   height: 300px;
   background: url(${gladeLogo});
-  opacity: 0.8;
+  opacity: 0.2;
   right: -50px;
   top: 100px;
   pointer-events: none;
