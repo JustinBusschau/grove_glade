@@ -221,6 +221,7 @@ export default function ContactPage() {
             target="dummyframe"
             onSubmit={handleSubmit}
           >
+            <input type="hidden" name="form-name" value="contact" />
             <FormGroup>
               <Label htmlFor="name">Name</Label>
               <Input
